@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SignUpActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register Account"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Fill your details or continue with
+social media"
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="9dp"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/ed_SignUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:padding="10dp"
+            android:textColorHint="#919191"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_edittext"
+            android:inputType="text"
+            android:hint="Enter the Emaill..."
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="9dp"
+            android:text="Họ và tên:"
+            android:textStyle="bold"
+            />
+
+
+        <EditText
+            android:id="@+id/ed_SignUpHoTen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:textColorHint="#919191"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_edittext"
+            android:hint="Enter the FullName..."
+            />
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="9dp"
+            android:text="Số Điện Thoại:"
+            android:textStyle="bold"
+            />
+
+
+        <EditText
+            android:id="@+id/ed_SignUpSDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Enter the Phone Number..."
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#919191" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="9dp"
+            android:text="Địa chỉ:"
+            android:textStyle="bold"
+            />
+
+
+        <EditText
+            android:id="@+id/ed_SignUpDC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Enter the Address..."
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#919191" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="9dp"
+            android:text="Password:"
+            android:textStyle="bold"
+            />
+
+
+        <EditText
+            android:id="@+id/ed_SignUpPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Enter the Password..."
+            android:textColorHint="#919191"
+            />
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="9dp"
+            android:text="Ngày sinh:"
+            android:textStyle="bold"
+            android:textColorHint="@color/black"
+            />
+
+
+        <EditText
+            android:id="@+id/ed_SignUpDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:focusable="false"
+            android:background="@drawable/custom_edittext"
+            android:hint="Enter the Date..."
+            android:textColorHint="#919191"
+            />
+        <Button
+            android:id="@+id/btn_SignUp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_button1"
+            app:backgroundTint="@null"
+            />
+        <TextView
+            android:id="@+id/tv_logIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/black"
+            android:text="@string/logIn"/>
+    </LinearLayout>
+
+</ScrollView>

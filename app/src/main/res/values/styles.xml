@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- res/values/styles.xml -->
+        <!-- Định nghĩa kiểu chữ cho bottom menu -->
+        <style name="BottomNavigationTextAppearance" parent="@android:style/TextAppearance">
+            <item name="android:fontFamily">@font/roboto</item>
+            <item name="android:textSize">12sp</item>
+            <item name="android:textColor">@color/black</item>
+        </style>
+
+        <style name="BottomNavigationTextAppearanceSelected" parent="@android:style/TextAppearance">
+            <item name="android:fontFamily">@font/roboto_bold</item>
+            <item name="android:textSize">14sp</item>
+            <item name="android:textColor">@color/black</item>
+        </style>
+    <style name="AppTheme.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemBackground">@null</item>
+        <item name="itemIconTint">@null</item>
+    </style>
+
+</resources>

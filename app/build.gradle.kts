@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.glide)
+    implementation(libs.commons.validator)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

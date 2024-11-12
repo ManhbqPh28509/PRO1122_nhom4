@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center|top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SignInActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/londrina_outline"
+        android:padding="2dp"
+        android:text="HUNGRYHUB"
+        android:textColor="@color/black"
+        android:textSize="45dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Đăng Nhập"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fill your details or continue with us"
+        android:textColor="@color/black"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutEmail"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:hint="Enter The Email..."
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="9dp"
+        android:textColorHint="#919191"
+        app:hintTextColor="@color/my_counter_color"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:drawableStart="@drawable/mail_icon"
+            android:drawablePadding="16dp"
+            android:fontFamily="@font/roboto"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:hint="Enter the Password.."
+        android:orientation="vertical"
+        android:textColorHint="#919191"
+        app:hintTextColor="@color/my_counter_color"
+        app:endIconDrawable="@drawable/icon_selection"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#131313"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/custom_edittext"
+            android:clickable="true"
+            android:drawableStart="@drawable/icon_lock"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@drawable/custom_cursor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_ForgotPassword"
+        android:clickable="true"
+        android:text="Quên mật khẩu ?"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="#6735d0"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_Login"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:text="ĐĂNG NHẬP"
+        android:textColor="@color/white"
+        app:backgroundTint="@null"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/raleway_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Don't have an account?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:fontFamily="@font/raleway_medium"
+            android:id="@+id/tv_SignUp"
+            android:text=" Sign Up"
+            android:clickable="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>
