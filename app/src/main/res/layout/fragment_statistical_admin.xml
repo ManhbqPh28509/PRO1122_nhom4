@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.StatisticalFragmentAdmin">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0d6efd">
+        <TextView
+            android:gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:text="Thống Kê"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+            <LinearLayout
+                android:id="@+id/layout_fromDate"
+                android:clickable="true"
+                android:background="@drawable/custom_border_layout"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:elevation="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="#0d6efd"
+                    android:text="Từ ngày"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:textColor="@color/black"
+                    android:focusable="false"
+                    android:id="@+id/edt_fromDateStatic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edittext3"
+                    android:drawableEnd="@drawable/baseline_calendar_month_24"
+                    android:fontFamily="@font/roboto"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="8dp"
+                    android:text="25/11/2024" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_toDate"
+                android:clickable="true"
+                android:background="@drawable/custom_border_layout"
+                android:padding="2dp"
+                android:elevation="4dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="#0d6efd"
+                    android:text="Đến ngày"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/edt_toDateStatic"
+                    android:fontFamily="@font/roboto"
+                    android:paddingStart="10dp"
+                    android:text="25/11/2024"
+                    android:textColor="@color/black"
+                    android:focusable="false"
+                    android:paddingEnd="8dp"
+                    android:drawableEnd="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/custom_edittext3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_Statistical"
+            android:elevation="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/custom_button1"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="15dp"
+            android:text="Thống Kê"
+            android:textColor="@color/white"
+            app:backgroundTint="@null">
+
+        </Button>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_weight="2">
+            <TextView
+                android:fontFamily="@font/roboto_bold"
+                android:text="Doanh Thu: "
+                android:layout_width="0dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tv_DoanhThu"
+                android:gravity="end"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#22ad65"
+                android:textSize="20dp"
+                android:text="0 VND"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerView_Revenue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+</LinearLayout>

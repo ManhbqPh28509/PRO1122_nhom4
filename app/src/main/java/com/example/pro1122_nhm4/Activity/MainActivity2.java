@@ -1,16 +1,19 @@
 package com.example.pro1122_nhm4.Activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.pro1122_nhm4.Fragment.HomeFragmentUser;
+import com.example.pro1122_nhm4.Fragment.OrderFragmentUser;
 import com.example.pro1122_nhm4.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,6 +21,7 @@ public class MainActivity2 extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FrameLayout fragmentContainer;
     private HomeFragmentUser homeFragmentUser;
+    private OrderFragmentUser orderFragmentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +33,18 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.xanh));
+        }
         bottomNavigationView = findViewById(R.id.bottom_navi_user);
         fragmentContainer = findViewById(R.id.frameLayoutUser);
-        if (homeFragmentUser == null) {
+        if(homeFragmentUser == null){
             homeFragmentUser = new HomeFragmentUser();
         }
+        if(orderFragmentUser == null){
+            orderFragmentUser = new OrderFragmentUser();
+        }
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutUser, homeFragmentUser)
                 .commit();
@@ -41,9 +52,9 @@ public class MainActivity2 extends AppCompatActivity {
             Fragment selectedFragment = null;
 
             if (item.getItemId() == R.id.menu_item_1) {
-                selectedFragment =  homeFragmentUser;
+                selectedFragment =  new HomeFragmentUser();
             } else if (item.getItemId() == R.id.menu_item_2) {
-                selectedFragment =  homeFragmentUser;
+                selectedFragment =  new OrderFragmentUser();
             } else if (item.getItemId() == R.id.menu_item_3) {
                 selectedFragment =  homeFragmentUser;
             } else if (item.getItemId() == R.id.menu_item_4) {

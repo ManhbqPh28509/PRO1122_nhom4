@@ -17,5 +17,18 @@
         <item name="itemBackground">@null</item>
         <item name="itemIconTint">@null</item>
     </style>
+    <style name="CustomDatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Nền dialog -->
+        <item name="android:windowBackground">@color/white</item>
+        <!-- Màu cho nút OK, Cancel -->
+        <item name="android:buttonBarStyle">@style/CustomButtonBar</item>
+    </style>
 
+    <style name="CustomButtonBar" parent="Widget.AppCompat.ButtonBar">
+        <item name="android:buttonStyle">@style/CustomButton</item>
+    </style>
+
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

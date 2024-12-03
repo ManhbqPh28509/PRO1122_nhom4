@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/transparent"
+    app:cardElevation="0dp"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/title"
+                android:background="#0d6efd"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm Món Ăn"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+            <LinearLayout
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Tên món ăn:"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:textStyle="bold"
+                    />
+                <EditText
+                    android:id="@+id/ed_AddNameDish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:padding="10dp"
+                    android:textColorHint="#919191"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:background="@drawable/custom_edittext"
+                    android:inputType="text"
+                    android:hint="Nhập tên món ăn..."
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="@color/black"
+                    android:text="Giá món ăn:"
+                    android:textStyle="bold"
+                    />
+
+
+                <EditText
+                    android:id="@+id/ed_AddPriceDish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:textColorHint="#919191"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Nhập giá món ăn..."
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="@color/black"
+                    android:text="Mô tả:"
+                    android:textStyle="bold"
+                    />
+
+
+                <EditText
+                    android:id="@+id/ed_AddDescriptionDish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Nhập mô tả món ăn..."
+                    android:fontFamily="@font/roboto"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#919191" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:text="Hiện trạng:"
+                    android:textStyle="bold"
+                    />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupAddDish"
+                    android:layout_marginLeft="9dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <RadioButton
+                        android:id="@+id/radiobtn_AddConHang"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto"
+                        android:text="Còn Hàng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/radiobtn_AddHetHang"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="60dp"
+                        android:text="Hết Hàng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:text="Danh mục:"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+
+                <Spinner
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#f2f2f2"
+                    android:id="@+id/spinnerAddDish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/black"
+                    android:popupBackground="@color/white"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:text="Link ảnh:"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textStyle="bold"
+                    />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/ed_AddImgDish"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginRight="9dp"
+                        android:textColor="@color/black"
+                        android:padding="10dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:background="@drawable/custom_edittext"
+                        android:hint="Nhập link ảnh món ăn..."
+                        android:textColorHint="#919191"
+                        />
+
+                    <Button
+                        android:id="@+id/btn_AddImgDish"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/custom_button"
+                        android:drawableLeft="@drawable/camera"
+                        android:gravity="center"
+                        android:tint="@color/white"
+                        app:backgroundTint="@null" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <Button
+                    android:id="@+id/btn_CancelDialogAddDish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/custom_button1"
+                    app:backgroundTint="@null"
+                    android:text="Hủy"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_AddDiaLogAddDish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Thêm"
+                    android:background="@drawable/custom_button1"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.cardview.widget.CardView>

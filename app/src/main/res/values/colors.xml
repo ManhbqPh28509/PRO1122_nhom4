@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="my_counter_color">#919191</color>
     <color name="transparent">#00000000</color>
+    <color name="xanh">#0d6efd</color>
 </resources>

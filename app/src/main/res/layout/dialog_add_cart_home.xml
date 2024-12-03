@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#0d6efd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="20dp"
+            android:text="Thêm Sản Phẩm"
+            android:textStyle="bold"
+            android:padding="18dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:text="Bạn có muốn thêm sản phẩm vào giỏ hàng không?"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:padding="18dp"
+            android:textSize="18dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:padding="18dp"
+        android:gravity="center"
+        android:layout_height="0dp">
+        <Button
+            android:background="@drawable/custom_button1"
+            app:backgroundTint="@null"
+            android:text="Thêm"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:id="@+id/btn_dialog_add_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:background="@drawable/custom_button1"
+            app:backgroundTint="@null"
+            android:layout_weight="1"
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:text="Hủy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

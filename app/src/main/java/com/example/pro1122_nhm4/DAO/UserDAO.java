@@ -12,7 +12,8 @@ import com.example.pro1122_nhm4.Model.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class UserDAO {
+public class
+UserDAO {
     SQLiteDatabase db;
     DbHelper dbHelper;
     public UserDAO(Context context){dbHelper = new DbHelper(context);}
@@ -59,7 +60,27 @@ public class UserDAO {
         return res;
     }
 
+    public User getUserByEmailAndPassword(String email,String password){
+        String query = "SELECT * FROM User WHERE email = ? AND matkhau = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{email, password});
 
+        User user = null;
+        if (cursor.moveToFirst()) {
+            user = new User();
+            user.setUser_id(cursor.getInt(0));
+            user.setHoten(cursor.getString(1));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                user.setNgaysinh(LocalDate.parse(cursor.getString(2)));
+            }
+            user.setEmail(cursor.getString(6));
+            user.setSdt(cursor.getString(3));
+            user.setDiachi(cursor.getString(4));
+            user.setMatkhau(cursor.getString(5));
+            user.setUser_role(cursor.getString(6));
+        }
+        cursor.close();
+        return user;
+    }
     public boolean checkLoginThanhVien(String email, String matKhau) {
         String query = "SELECT * FROM User WHERE email = ? AND matkhau = ?";
         Cursor cursor = db.rawQuery(query, new String[]{email, matKhau});
@@ -118,4 +139,14 @@ public class UserDAO {
         return arrayList;
     }
 
+    public String getUserNameById(int userId) {
+        String query = "SELECT hoten FROM User WHERE user_id = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});
+        if (cursor != null && cursor.moveToFirst()) {
+            String userName = cursor.getString(0);
+            cursor.close();
+            return userName;
+        }
+        return null;
+    }
 }

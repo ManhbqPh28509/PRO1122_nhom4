@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RateActivityUser">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:backgroundTint="#0d6efd"
+                    android:src="@drawable/baseline_keyboard_backspace_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Đánh giá nhà hàng"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logohungryhub"
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
+            <TextView
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_bold"
+                android:text="HungryHub"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_gravity="center"
+                android:id="@+id/library_tinted_wide_ratingbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rating="5"
+                android:stepSize="1"
+                app:mrb_progressTint="#FFC107"
+                app:mrb_secondaryProgressTint="#525151"
+                style="@style/Widget.MaterialRatingBar.RatingBar" />
+            <LinearLayout
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="#F5F5F5"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8">
+                    <TextView
+                        android:padding="8dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Chất lượng nhà hàng: "
+                        android:layout_width="0dp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"/>
+                    <EditText
+                        android:id="@+id/edt_RateChatLuong"
+                        android:padding="8dp"
+                        android:layout_weight="4"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/black"
+                        android:focusable="false"
+                        android:hint="để lại đánh giá"
+                        android:textColorHint="@color/my_counter_color"
+                        android:layout_width="0dp"
+                        android:background="@drawable/custom_button4"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#ebebeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+                <EditText
+                    android:id="@+id/edt_Rate"
+                    android:padding="8dp"
+                    android:hint="Hãy chia sẻ nhận xét cho nhà hàng chúng tôi bạn nhé!"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/my_counter_color"
+                    android:background="@drawable/custom_button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/recyclerView_Rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_Rate"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/custom_button1"
+                android:text="Đánh giá"
+                android:textColor="@color/white"
+                app:backgroundTint="@null">
+
+            </Button>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -32,12 +32,16 @@ android {
 }
 
 dependencies {
+    implementation(libs.materialRatingBar)
+    implementation(libs.recyclerview)
+    implementation(libs.viewpager2)
     implementation(libs.glide)
     implementation(libs.commons.validator)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.swiperefreshlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

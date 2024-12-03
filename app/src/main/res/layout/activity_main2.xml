@@ -26,7 +26,7 @@
         style="@style/AppTheme.BottomNavigationView"
         app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceSelected"
         app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
-        app:itemTextColor="#000000"
+        app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_user" />
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.pro1122_nhm4.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.pro1122_nhm4.DAO.UserDAO;
+import com.example.pro1122_nhm4.Model.User;
 import com.example.pro1122_nhm4.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -61,6 +63,18 @@ public class SignInActivity extends AppCompatActivity {
                 }else{
                     if(userDAO.checkRoleUser(edt_Email.getText().toString(),edt_Password.getText().toString())){
                         Intent intent = new Intent(SignInActivity.this,MainActivity2.class);
+                        User user = userDAO.getUserByEmailAndPassword(edt_Email.getText().toString(),edt_Password.getText().toString());
+                        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putInt("userId", user.getUser_id());
+                        editor.putString("hoten", user.getHoten());
+                        editor.putString("diachi",user.getDiachi());
+                        editor.putString("email",user.getEmail());
+                        editor.putString("matkhau",user.getMatkhau());
+                        editor.putString("user_role",user.getUser_role());
+                        editor.putString("sdt",user.getSdt());
+                        editor.putString("ngaysinh",user.getNgaysinh().toString());
+                        editor.apply();
                         startActivity(intent);
                     }else {
                         Intent intent = new Intent(SignInActivity.this,MainActivity.class);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="10">
+    <LinearLayout
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/img_ratingDish"
+            android:scaleType="fitCenter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_ratingDish"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Món ăn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+        android:layout_weight="5"
+        android:stepSize="1"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/library_tinted_wide_ratingbar_ratingDish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:rating="5"
+        app:mrb_progressTint="#FFC107"
+        app:mrb_secondaryProgressTint="#525151"
+        style="@style/Widget.MaterialRatingBar.RatingBar" />
+    <EditText
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/custom_button4"
+        android:layout_weight="3"
+        android:padding="8dp"
+        android:focusable="false"
+        android:gravity="center|start"
+        android:text="Rất Tốt"
+        android:id="@+id/edt_ratingDish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

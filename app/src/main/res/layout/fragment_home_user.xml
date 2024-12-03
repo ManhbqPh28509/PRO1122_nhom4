@@ -1,16 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F7F9"
     tools:context=".Fragment.HomeFragmentUser">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#f0f0f0"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#0d6efd"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Giao đến:"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
 
-</FrameLayout>
+                <TextView
+                    android:id="@+id/tv_DiaChiUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ user"
+                    android:drawablePadding="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:textSize="13dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:clickable="true"
+                    android:drawableStart="@drawable/placeholder"
+                    android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
+                    />
+                <EditText
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ed_fragment_home_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:drawableStart="@drawable/search"
+                    android:textColorHint="#1F1F1F"
+                    android:hint="Tìm kiếm món ăn yêu thích"
+                    android:background="@drawable/custom_edittext2"
+                    android:paddingLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <FrameLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <!-- Slideshow ViewPager -->
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"/>
+
+                    <!-- Chấm điều hướng nằm bên trong ViewPager -->
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="16dp"
+                        app:tabIndicatorColor="@android:color/white"
+                        app:tabIndicatorGravity="center"
+                        android:background="@color/transparent"
+                        app:tabSelectedTextColor="@android:color/white"
+                        app:tabRippleColor="?attr/colorControlHighlight"/>
+
+                </FrameLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="200dp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/recycler_view_dish"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

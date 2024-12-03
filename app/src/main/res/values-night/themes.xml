@@ -3,5 +3,8 @@
     <style name="Base.Theme.PRO1122_nhóm4" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/black</item>
+        <item name="android:statusBarColor">#0d6efd</item>
+        <!-- Đặt true để nội dung của status bar màu sáng -->
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
