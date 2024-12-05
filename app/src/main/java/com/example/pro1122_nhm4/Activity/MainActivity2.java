@@ -12,8 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.pro1122_nhm4.Fragment.FavouriteFragment;
 import com.example.pro1122_nhm4.Fragment.HomeFragmentUser;
 import com.example.pro1122_nhm4.Fragment.OrderFragmentUser;
+import com.example.pro1122_nhm4.Fragment.ProfileFragmentUser;
 import com.example.pro1122_nhm4.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,6 +24,8 @@ public class MainActivity2 extends AppCompatActivity {
     private FrameLayout fragmentContainer;
     private HomeFragmentUser homeFragmentUser;
     private OrderFragmentUser orderFragmentUser;
+    private FavouriteFragment favouriteFragment;
+    private ProfileFragmentUser profileFragmentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,12 @@ public class MainActivity2 extends AppCompatActivity {
         if(orderFragmentUser == null){
             orderFragmentUser = new OrderFragmentUser();
         }
+        if(favouriteFragment == null){
+            favouriteFragment = new FavouriteFragment();
+        }
+        if(profileFragmentUser == null){
+            profileFragmentUser = new ProfileFragmentUser();
+        }
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutUser, homeFragmentUser)
@@ -56,11 +66,11 @@ public class MainActivity2 extends AppCompatActivity {
             } else if (item.getItemId() == R.id.menu_item_2) {
                 selectedFragment =  new OrderFragmentUser();
             } else if (item.getItemId() == R.id.menu_item_3) {
-                selectedFragment =  homeFragmentUser;
+                selectedFragment =  new FavouriteFragment();
             } else if (item.getItemId() == R.id.menu_item_4) {
                 selectedFragment =  homeFragmentUser;
             } else if (item.getItemId() == R.id.menu_item_5) {
-                selectedFragment =  homeFragmentUser;
+                selectedFragment =  new ProfileFragmentUser();
             }
 
             getSupportFragmentManager().beginTransaction()

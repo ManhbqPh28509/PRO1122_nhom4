@@ -42,7 +42,29 @@ public class OrderDAO {
         close();
         return newRowId;
     }
-
+    public Order getOrderById(int orderId) {
+        open();
+        Order order = new Order();
+        String selection = "order_id = ?";
+        String[] selectionArgs = {String.valueOf(orderId)};
+        Cursor cursor = db.query("`Order`", null, selection, selectionArgs, null, null, null);
+        if (cursor.moveToFirst()) {
+            order.setOrder_id(cursor.getInt(0));
+            order.setUser_id(cursor.getInt(1));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                order.setOrder_date(LocalDate.parse(cursor.getString(2)));
+            }
+            order.setTotal_amount(cursor.getInt(3));
+            order.setStatus(cursor.getString(4));
+            cursor.close();
+            close();
+            return order;
+        } else {
+            cursor.close();
+        }
+        close();
+        return null;
+    }
     public long update(Order order) {
         open();
         ContentValues values = new ContentValues();
@@ -154,7 +176,7 @@ public class OrderDAO {
         List<Order> orders = new ArrayList<>();
 
         // Thêm điều kiện trạng thái "Đã hoàn thành" vào truy vấn
-        String selection = "user_id = ? AND status != ?";
+        String selection = "user_id = ? AND status != ? ";
         String[] selectionArgs = {String.valueOf(userId), "Đã hoàn thành"};
 
         Cursor cursor = db.query("`Order`", null, selection, selectionArgs, null, null, "order_id DESC");

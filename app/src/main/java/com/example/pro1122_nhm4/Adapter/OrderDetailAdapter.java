@@ -43,7 +43,6 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_order_detail, parent, false);
         return new OrderDetailAdapter.ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull OrderDetailAdapter.ViewHolder holder, int position) {
         Log.d("onBindViewHolder", "Binding item at position: " + position);
@@ -52,15 +51,12 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
         dishDAO = new DishDAO(context);
         dishDAO.open();
         Log.d("onBindViewHolder", "DishDAO opened");
-
         Dish dish = dishDAO.getDishByID(orderItem.getDish_id());
         Log.d("DishDAO", "Dish ID: " + orderItem.getDish_id() + ", Dish Name: " + (dish != null ? dish.getName() : "NULL"));
-
         Glide.with(context).load(dish.getImg()).into(holder.imageView);
         holder.tv_name.setText(dish.getName());
         holder.tv_quantity.setText(String.valueOf(orderItem.getQuantity()) + "x");
         holder.tv_price.setText(formatter.format(orderItem.getPrice()) + "đ");
-
         dishDAO.close();
         Log.d("onBindViewHolder", "DishDAO closed");
 

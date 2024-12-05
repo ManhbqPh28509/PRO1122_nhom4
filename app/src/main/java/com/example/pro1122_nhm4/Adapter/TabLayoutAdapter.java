@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.pro1122_nhm4.Fragment.CartFragmentUser;
 import com.example.pro1122_nhm4.Fragment.CommingFragment;
 import com.example.pro1122_nhm4.Fragment.HistoryFragment;
+import com.example.pro1122_nhm4.Fragment.RateFragmentUser;
 
 public class TabLayoutAdapter extends FragmentStateAdapter {
 
@@ -27,7 +28,7 @@ public class TabLayoutAdapter extends FragmentStateAdapter {
             case 2:
                 return new HistoryFragment();
             case 3:
-                return new CommingFragment();
+                return new RateFragmentUser();
             default:
                 return null;
         }

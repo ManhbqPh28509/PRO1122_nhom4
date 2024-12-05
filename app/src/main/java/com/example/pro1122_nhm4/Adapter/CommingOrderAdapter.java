@@ -2,17 +2,20 @@ package com.example.pro1122_nhm4.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pro1122_nhm4.Activity.DetailOrderActivity;
 import com.example.pro1122_nhm4.DAO.DishDAO;
 import com.example.pro1122_nhm4.DAO.OrderDAO;
 import com.example.pro1122_nhm4.DAO.OrderItemDAO;
@@ -87,6 +90,16 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
         holder.recyclerView_DishesOrder.setAdapter(adapter);
         holder.tv_quantityOrder.setText(adapter.getTotalQuantity()+" món");
         holder.tv_totalPriceOrder.setText(formatter.format(adapter.getTotalPrice()+20000) + "đ");
+        holder.linearLayout_CommingOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition(); // Lấy vị trí chính xác
+                Order clickedOrder = orderList.get(adapterPosition); // Lấy Order từ vị trí
+                Intent intent = new Intent(context, DetailOrderActivity.class);
+                intent.putExtra("order_id", clickedOrder.getOrder_id());
+                context.startActivity(intent);
+            }
+        });
         holder.btn_DaNhanHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +115,6 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
                         if (adapterPosition >= 0 && adapterPosition < orderList.size()) {
                             orderList.remove(adapterPosition);
                             notifyItemRemoved(adapterPosition);
-
                             // Thông báo rằng danh sách đã thay đổi để đảm bảo không xảy ra lỗi
                             if (adapterPosition < orderList.size()) {
                                 notifyItemRangeChanged(adapterPosition, orderList.size() - adapterPosition);
@@ -128,6 +140,7 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
         private TextView tv_ordertime, tv_orderStatus, tv_totalPriceOrder, tv_quantityOrder,tv_ShipTimeOrder;
         private RecyclerView recyclerView_DishesOrder;
         private Button btn_DaNhanHang;
+        private LinearLayout linearLayout_CommingOrder;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_ordertime = itemView.findViewById(R.id.tv_ordertime);
@@ -137,6 +150,7 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
             tv_ShipTimeOrder = itemView.findViewById(R.id.tv_ShipTimeOrder);
             recyclerView_DishesOrder = itemView.findViewById(R.id.recyclerView_DishesOrder);
             btn_DaNhanHang = itemView.findViewById(R.id.btn_DaGiaoHang);
+            linearLayout_CommingOrder = itemView.findViewById(R.id.linearLayout_CommingOrder);
         }
     }
 }

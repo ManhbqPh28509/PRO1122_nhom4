@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FavouriteFragment">
+    <LinearLayout
+        android:background="#0d6efd"
+        android:orientation="horizontal"
+        android:elevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            android:layout_marginLeft="12dp"
+            android:textSize="25dp"
+            android:padding="8dp"
+            android:text="Yêu Thích"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFavourite"
+        android:padding="10dp"
+        android:background="#F0F0F0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</LinearLayout>

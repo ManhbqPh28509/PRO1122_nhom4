@@ -2,16 +2,20 @@ package com.example.pro1122_nhm4.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pro1122_nhm4.Activity.DetailOrderActivity;
 import com.example.pro1122_nhm4.DAO.DishDAO;
 import com.example.pro1122_nhm4.DAO.OrderDAO;
 import com.example.pro1122_nhm4.DAO.OrderItemDAO;
@@ -104,6 +108,17 @@ public class OrderAdapterAdmin extends RecyclerView.Adapter<OrderAdapterAdmin.Vi
         holder.tv_totalPriceOrderAdmin.setText(formatter.format(adapter.getTotalPrice()+20000) + "đ");
         dishDAO.close();
         orderItemDAO.close();
+        holder.linearLayoutItemOrderAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition(); // Lấy vị trí chính xác
+                Order clickedOrder = orderList.get(adapterPosition); // Lấy Order từ vị trí
+                Log.d("HistoryAdapter", "onClick: position = " + adapterPosition + ", order_id = " + clickedOrder.getOrder_id());
+                Intent intent = new Intent(context, DetailOrderActivity.class);
+                intent.putExtra("order_id", clickedOrder.getOrder_id());
+                context.startActivity(intent);
+            }
+        });
         holder.btn_XacNhapDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,6 +191,7 @@ public class OrderAdapterAdmin extends RecyclerView.Adapter<OrderAdapterAdmin.Vi
         private TextView tv_ordertimeAdmin, tv_totalPriceOrderAdmin, tv_quantityOrderAdmin, tv_orderStatusAdmin;
         private RecyclerView recyclerView_DishesOrderAdmin;
         private Button btn_XacNhapDon, btn_GiaoHang, btn_DaGiaoHang;
+        private LinearLayout linearLayoutItemOrderAdmin;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_ordertimeAdmin = itemView.findViewById(R.id.tv_ordertimeAdmin);
@@ -186,6 +202,7 @@ public class OrderAdapterAdmin extends RecyclerView.Adapter<OrderAdapterAdmin.Vi
             btn_XacNhapDon = itemView.findViewById(R.id.btn_XacNhapDon);
             btn_GiaoHang = itemView.findViewById(R.id.btn_GiaoHang);
             btn_DaGiaoHang = itemView.findViewById(R.id.btn_DaGiaoHang);
+            linearLayoutItemOrderAdmin = itemView.findViewById(R.id.linearLayoutItemOrderAdmin);
         }
     }
 }

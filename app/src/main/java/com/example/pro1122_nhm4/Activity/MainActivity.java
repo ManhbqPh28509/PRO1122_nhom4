@@ -16,6 +16,7 @@ import com.example.pro1122_nhm4.Adapter.OrderAdapterAdmin;
 import com.example.pro1122_nhm4.Fragment.HomeFragmentAdmin;
 import com.example.pro1122_nhm4.Fragment.HomeFragmentUser;
 import com.example.pro1122_nhm4.Fragment.OrderFragmentAdmin;
+import com.example.pro1122_nhm4.Fragment.RateFragmentUser;
 import com.example.pro1122_nhm4.Fragment.StatisticalFragmentAdmin;
 import com.example.pro1122_nhm4.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragmentAdmin homeFragmentAdmin;
     private OrderFragmentAdmin orderFragmentAdmin;
     private StatisticalFragmentAdmin statisticalFragmentAdmin;
+    private RateFragmentUser rateFragmentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         if(statisticalFragmentAdmin == null){
             statisticalFragmentAdmin = new StatisticalFragmentAdmin();
         }
+        if(rateFragmentUser == null){
+            rateFragmentUser = new RateFragmentUser();
+        }
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutAdmin, homeFragmentAdmin)
                 .commit();
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.menu_item_2) {
                 selectedFragment =  new OrderFragmentAdmin();
             } else if (item.getItemId() == R.id.menu_item_3) {
-                selectedFragment =  statisticalFragmentAdmin;
+                selectedFragment =  new RateFragmentUser();
             } else if (item.getItemId() == R.id.menu_item_4) {
                 selectedFragment =  statisticalFragmentAdmin;
             } else if (item.getItemId() == R.id.menu_item_5) {

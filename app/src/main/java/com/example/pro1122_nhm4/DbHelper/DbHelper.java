@@ -70,6 +70,8 @@ public class DbHelper extends SQLiteOpenHelper {
                 ")";
         String CRATE_TABLE_RATE_ORDER = "CREATE TABLE RateOrder (rate_order_id integer primary key autoincrement, user_id integer REFERENCES User(user_id), order_id integer REFERENCES `Orde`(order_id), rating integer not null, comment text not null, date_rate date not null)";
         String CREATE_TABLE_RATE_Dish = "CREATE TABLE RateDish (rate_dish_id integer primary key autoincrement, user_id integer REFERENCES User(user_id), dish_id integer REFERENCES Dish(dish_id), rating integer not null, comment text not null, date_rate date not null)";
+        String CREATE_TABLE_FAVOURITE = "CREATE TABLE Favourite (favourite_id integer primary key autoincrement, user_id integer REFERENCES User(user_id), dish_id integer REFERENCES Dish(dish_id))";
+        db.execSQL(CREATE_TABLE_FAVOURITE);
         db.execSQL(CRATE_TABLE_RATE_ORDER);
         db.execSQL(CREATE_TABLE_RATE_Dish);
         db.execSQL(CREATE_TABLE_ORDER);
@@ -82,6 +84,11 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Category");
         db.execSQL("DROP TABLE IF EXISTS Dish");
         db.execSQL("DROP TABLE IF EXISTS Cart");
+        db.execSQL("DROP TABLE IF EXISTS `Order`");
+        db.execSQL("DROP TABLE IF EXISTS OrderItem");
+        db.execSQL("DROP TABLE IF EXISTS RateOrder");
+        db.execSQL("DROP TABLE IF EXISTS RateDish");
+        db.execSQL("DROP TABLE IF EXISTS Favourite");
         onCreate(db);
     }
 }

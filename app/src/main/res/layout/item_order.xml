@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:layout_marginTop="10dp"
+    android:id="@+id/linearLayout_CommingOrder"
     android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="horizontal"

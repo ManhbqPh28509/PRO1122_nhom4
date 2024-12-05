@@ -76,7 +76,7 @@ UserDAO {
             user.setSdt(cursor.getString(3));
             user.setDiachi(cursor.getString(4));
             user.setMatkhau(cursor.getString(5));
-            user.setUser_role(cursor.getString(6));
+            user.setUser_role(cursor.getString(7));
         }
         cursor.close();
         return user;
@@ -126,7 +126,7 @@ UserDAO {
                 user.setSdt(cursor.getString(3));
                 user.setDiachi(cursor.getString(4));
                 user.setMatkhau(cursor.getString(5));
-                user.setUser_role(cursor.getString(6));
+                user.setUser_role(cursor.getString(7));
                 arrayList.add(user);
                 cursor.moveToNext();
             }
@@ -138,7 +138,27 @@ UserDAO {
 
         return arrayList;
     }
+    public User getUserById(int userId) {
+        String query = "SELECT * FROM User WHERE user_id = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});
+        User user = null;
+        if (cursor.moveToFirst()) {
+            user = new User();
+            user.setUser_id(cursor.getInt(0));
+            user.setHoten(cursor.getString(1));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                user.setNgaysinh(LocalDate.parse(cursor.getString(2)));
+            }
+            user.setEmail(cursor.getString(6));
+            user.setSdt(cursor.getString(3));
+            user.setDiachi(cursor.getString(4));
+            user.setMatkhau(cursor.getString(5));
+            user.setUser_role(cursor.getString(7));
+        }
+        cursor.close();
+        return user;
 
+    }
     public String getUserNameById(int userId) {
         String query = "SELECT hoten FROM User WHERE user_id = ?";
         Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});

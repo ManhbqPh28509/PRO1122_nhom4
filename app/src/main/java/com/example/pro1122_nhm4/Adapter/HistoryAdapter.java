@@ -2,6 +2,7 @@ package com.example.pro1122_nhm4.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     }
     public void setData(List<Order> orderList) {
         this.orderList = orderList;
+        for (Order order : orderList) {
+            Log.d("HistoryAdapter", "setData: order_id = " + order.getOrder_id());
+        }
     }
     @NonNull
     @Override
@@ -84,16 +88,22 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         holder.btn_DanhGia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(context, RateActivityUser.class);
-                    intent.putExtra("order_id", order.getOrder_id());
-                    context.startActivity(intent);
+                int adapterPosition = holder.getAdapterPosition(); // Lấy vị trí chính xác
+                Order clickedOrder = orderList.get(adapterPosition); // Lấy Order từ vị trí
+                Log.d("HistoryAdapter", "onClick: position = " + adapterPosition + ", order_id = " + clickedOrder.getOrder_id());
+                Intent intent = new Intent(context, RateActivityUser.class);
+                intent.putExtra("order_id", clickedOrder.getOrder_id());
+                context.startActivity(intent);
                 }
         });
         holder.linearLayoutItemOrderHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition(); // Lấy vị trí chính xác
+                Order clickedOrder = orderList.get(adapterPosition); // Lấy Order từ vị trí
+                Log.d("HistoryAdapter", "onClick: position = " + adapterPosition + ", order_id = " + clickedOrder.getOrder_id());
                 Intent intent = new Intent(context, DetailOrderActivity.class);
-                intent.putExtra("order_id", order.getOrder_id());
+                intent.putExtra("order_id", clickedOrder.getOrder_id());
                 context.startActivity(intent);
             }
         });

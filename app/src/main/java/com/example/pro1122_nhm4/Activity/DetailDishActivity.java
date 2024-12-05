@@ -1,11 +1,12 @@
 package com.example.pro1122_nhm4.Activity;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pro1122_nhm4.Adapter.DishDetailAdapter;
 import com.example.pro1122_nhm4.DAO.DishDAO;
+import com.example.pro1122_nhm4.DAO.FavouriteDAO;
 import com.example.pro1122_nhm4.DAO.RateDishDAO;
 import com.example.pro1122_nhm4.Model.Dish;
+import com.example.pro1122_nhm4.Model.Favourite;
 import com.example.pro1122_nhm4.R;
 
 import java.text.DecimalFormat;
@@ -27,11 +30,13 @@ import java.text.DecimalFormat;
 public class DetailDishActivity extends AppCompatActivity {
     private Dish dish;
     private DishDAO dishDAO;
-    private ImageView imgDish,imgBack;
+    private ImageView imgDish,imgBack,img_Fravourite,img_Fravourite2;
     private TextView tvNameDish,tvPriceDish, tvDescriptionDish,tv_count_comment,AVG_rating;
     private RecyclerView recyclerView;
     private DecimalFormat formatter = new DecimalFormat("#,###,###,###");
     private RateDishDAO rateDishDAO;
+    private Favourite favourite;
+    private FavouriteDAO favoutiteDAO;
     private DishDetailAdapter dishDetailAdapter;
 
     @Override
@@ -55,6 +60,8 @@ public class DetailDishActivity extends AppCompatActivity {
         tvDescriptionDish = findViewById(R.id.tv_infor_food_description);
         recyclerView = findViewById(R.id.recylerView_rate);
         tv_count_comment = findViewById(R.id.tv_count_comment);
+        img_Fravourite = findViewById(R.id.img_fravourite);
+        img_Fravourite2 = findViewById(R.id.img_fravourite2);
         AVG_rating = findViewById(R.id.AVG_rating);
         imgBack = findViewById(R.id.img_backDishDetail);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -75,6 +82,48 @@ public class DetailDishActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+        favoutiteDAO = new FavouriteDAO(this);
+        favoutiteDAO.open();
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("userId", 0);
+        String user_role = sharedPreferences.getString("user_role", "");
+        if(user_role.equals("admin")){
+            img_Fravourite.setVisibility(View.GONE);
+            img_Fravourite2.setVisibility(View.GONE);
+        }else {
+            if(favoutiteDAO.isFavourite(userId,dish.getDish_id())){
+                img_Fravourite.setVisibility(View.GONE);
+                img_Fravourite2.setVisibility(View.VISIBLE);
+            }else {
+                img_Fravourite.setVisibility(View.VISIBLE);
+                img_Fravourite2.setVisibility(View.GONE);
+            }
+        }
+
+        img_Fravourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img_Fravourite.setVisibility(View.GONE);
+                img_Fravourite2.setVisibility(View.VISIBLE);
+                FavouriteDAO favouriteDAO = new FavouriteDAO(DetailDishActivity.this);
+                favouriteDAO.open();
+                SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                int userId = sharedPreferences.getInt("userId", 0);
+                favouriteDAO.addFavourite(dish.getDish_id(),userId);
+            }
+        });
+        img_Fravourite2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img_Fravourite.setVisibility(View.VISIBLE);
+                img_Fravourite2.setVisibility(View.GONE);
+                FavouriteDAO favouriteDAO = new FavouriteDAO(DetailDishActivity.this);
+                favouriteDAO.open();
+                SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                int userId = sharedPreferences.getInt("userId", 0);
+                favouriteDAO.deleteFavourite(userId,dish.getDish_id());
             }
         });
 
