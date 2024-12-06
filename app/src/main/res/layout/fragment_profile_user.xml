@@ -13,7 +13,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:elevation="4dp"
-        android:layout_height="100dp">
+        android:layout_height="140dp">
         <ImageView
             android:src="@drawable/baseline_account_circle_24"
             android:layout_width="wrap_content"
@@ -31,10 +31,13 @@
 
     </LinearLayout>
     <LinearLayout
+        android:background="#F0F0F0"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:id="@+id/linearLayout_AddressProfile"
+            android:layout_marginTop="8dp"
             android:background="@color/white"
             android:padding="12dp"
             android:orientation="horizontal"
@@ -49,7 +52,7 @@
                 android:fontFamily="@font/roboto"
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:text="Địa Chỉ"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -82,7 +85,7 @@
                 android:fontFamily="@font/roboto"
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:text="Cài đặt"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -107,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:src="@drawable/placeholder"
+                android:src="@drawable/spoon_fork"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -115,7 +118,7 @@
                 android:fontFamily="@font/roboto"
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:text="Về HungryHub"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -133,6 +136,34 @@
             android:background="@color/my_counter_color"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
+        <LinearLayout
+            android:id="@+id/linearLayout_account"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/user3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="center|start"
+                android:fontFamily="@font/roboto"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="Quản lý Tài khoản"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_gravity="end"
+                android:src="@drawable/baseline_arrow_forward_ios_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
         <Button
             android:layout_marginTop="25dp"

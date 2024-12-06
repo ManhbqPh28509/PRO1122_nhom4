@@ -80,13 +80,11 @@ public class StatisticalFragmentAdmin extends Fragment {
         edt_toDateStatic.setText(displayFormat.format(calendar.getTime()));
         calendar.add(Calendar.DATE, -7);
         edt_fromDateStatic.setText(displayFormat.format(calendar.getTime()));
-
         // Xử lý click chọn ngày
         layout_fromDate.setOnClickListener(v -> showDatePickerDialog(true));
         edt_fromDateStatic.setOnClickListener(v -> showDatePickerDialog(true));
         layout_toDate.setOnClickListener(v -> showDatePickerDialog(false));
         edt_toDateStatic.setOnClickListener(v -> showDatePickerDialog(false));
-
         // Nút xem thống kê
         btn_Statistical.setOnClickListener(v -> handleStatistics());
     }

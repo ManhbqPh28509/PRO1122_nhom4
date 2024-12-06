@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pro1122_nhm4.Fragment.FavouriteFragment;
 import com.example.pro1122_nhm4.Fragment.HomeFragmentUser;
+import com.example.pro1122_nhm4.Fragment.NotificationFragment;
 import com.example.pro1122_nhm4.Fragment.OrderFragmentUser;
 import com.example.pro1122_nhm4.Fragment.ProfileFragmentUser;
 import com.example.pro1122_nhm4.R;
@@ -26,6 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
     private OrderFragmentUser orderFragmentUser;
     private FavouriteFragment favouriteFragment;
     private ProfileFragmentUser profileFragmentUser;
+    private NotificationFragment notificationFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class MainActivity2 extends AppCompatActivity {
         }
         if(profileFragmentUser == null){
             profileFragmentUser = new ProfileFragmentUser();
+        }if(notificationFragment == null){
+            notificationFragment = new NotificationFragment();
         }
 
         getSupportFragmentManager().beginTransaction()
@@ -68,7 +72,7 @@ public class MainActivity2 extends AppCompatActivity {
             } else if (item.getItemId() == R.id.menu_item_3) {
                 selectedFragment =  new FavouriteFragment();
             } else if (item.getItemId() == R.id.menu_item_4) {
-                selectedFragment =  homeFragmentUser;
+                selectedFragment =  new NotificationFragment();
             } else if (item.getItemId() == R.id.menu_item_5) {
                 selectedFragment =  new ProfileFragmentUser();
             }

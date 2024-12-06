@@ -107,8 +107,8 @@ public class OrderDAO {
         List<Order> orders = new ArrayList<>();
 
         // Thêm điều kiện trạng thái "Đã hoàn thành" vào truy vấn
-        String selection = "user_id = ? AND status = ?";
-        String[] selectionArgs = {String.valueOf(userId), "Đã hoàn thành"};
+        String selection = "user_id = ? AND status IN(?, ?)";
+        String[] selectionArgs = {String.valueOf(userId), "Đã hoàn thành","Đã hủy"};
 
         Cursor cursor = db.query("`Order`", null, selection, selectionArgs, null, null, "order_id DESC");
 
@@ -176,8 +176,8 @@ public class OrderDAO {
         List<Order> orders = new ArrayList<>();
 
         // Thêm điều kiện trạng thái "Đã hoàn thành" vào truy vấn
-        String selection = "user_id = ? AND status != ? ";
-        String[] selectionArgs = {String.valueOf(userId), "Đã hoàn thành"};
+        String selection = "user_id = ? AND status NOT IN (?, ?)";
+        String[] selectionArgs = {String.valueOf(userId), "Đã hoàn thành","Đã hủy"};
 
         Cursor cursor = db.query("`Order`", null, selection, selectionArgs, null, null, "order_id DESC");
 

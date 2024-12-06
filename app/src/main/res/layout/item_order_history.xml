@@ -114,6 +114,16 @@
             android:fontFamily="@font/roboto_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_DaHuy"
+            android:layout_marginRight="8dp"
+            android:text="Đã hủy"
+            android:textColor="#F44336"
+            android:textSize="16dp"
+            android:visibility="gone"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btn_DanhGia"

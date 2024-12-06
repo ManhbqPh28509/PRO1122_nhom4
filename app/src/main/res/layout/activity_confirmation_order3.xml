@@ -17,6 +17,7 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/img_backComfirmOrder"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:backgroundTint="#0d6efd"
@@ -104,6 +105,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linearLayout_DiaChiUserConfirmOder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"

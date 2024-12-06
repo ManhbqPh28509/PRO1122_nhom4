@@ -3,6 +3,7 @@ package com.example.pro1122_nhm4.Fragment;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.pro1122_nhm4.Activity.AddressEditActivity;
 import com.example.pro1122_nhm4.Adapter.CategoryAdapter;
 import com.example.pro1122_nhm4.Adapter.DishAdapter;
 import com.example.pro1122_nhm4.Adapter.SlideAdapter;
@@ -102,6 +104,13 @@ public class HomeFragmentUser extends Fragment implements OnCategoryClickListene
         String userDiaChi = sharedPreferences.getString("diachi", null);
         tv_DiaChi = view.findViewById(R.id.tv_DiaChiUser);
         tv_DiaChi.setText(userDiaChi);
+        tv_DiaChi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddressEditActivity.class);
+                startActivity(intent);
+            }
+        });
         recyclerViewCategory = view.findViewById(R.id.recycler_view_category);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false);
         recyclerViewCategory.setLayoutManager(gridLayoutManager);

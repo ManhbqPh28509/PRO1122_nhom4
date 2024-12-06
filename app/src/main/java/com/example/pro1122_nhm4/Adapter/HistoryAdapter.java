@@ -57,6 +57,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull HistoryAdapter.ViewHolder holder, int position) {
         order = orderList.get(position);
+        if(order.getStatus().equals("Đã hủy")){
+            holder.btn_DanhGia.setVisibility(View.GONE);
+            holder.tv_DaHuy.setVisibility(View.VISIBLE);
+        }
         holder.tv_ordertimeHistory.setText(String.valueOf(order.getOrder_date()));
         holder.tv_totalPriceOrderHistory.setText(formatter.format(order.getTotal_amount()) + "đ");
 //        Calendar calendar = Calendar.getInstance();
@@ -85,6 +89,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             holder.btn_DanhGia.setVisibility(View.GONE);
             holder.tv_DaDanhGia.setVisibility(View.VISIBLE);
         }
+
         holder.btn_DanhGia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,7 +120,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_ordertimeHistory, tv_totalPriceOrderHistory, tv_quantityOrderHistory,tv_DaDanhGia;
+        private TextView tv_ordertimeHistory, tv_totalPriceOrderHistory, tv_quantityOrderHistory,tv_DaDanhGia,tv_DaHuy;
         private Button btn_DanhGia;
         private RecyclerView recyclerView_DishesOrderHistory;
         private LinearLayout linearLayoutItemOrderHistory;
@@ -128,7 +133,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             recyclerView_DishesOrderHistory = itemView.findViewById(R.id.recyclerView_DishesOrderHistory);
             tv_DaDanhGia = itemView.findViewById(R.id.tv_DaDanhGia);
             linearLayoutItemOrderHistory = itemView.findViewById(R.id.linearLayoutItemOrderHistory);
-
+            tv_DaHuy = itemView.findViewById(R.id.tv_DaHuy);
         }
     }
 }

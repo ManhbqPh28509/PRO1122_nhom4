@@ -15,7 +15,9 @@ import androidx.fragment.app.Fragment;
 import com.example.pro1122_nhm4.Adapter.OrderAdapterAdmin;
 import com.example.pro1122_nhm4.Fragment.HomeFragmentAdmin;
 import com.example.pro1122_nhm4.Fragment.HomeFragmentUser;
+import com.example.pro1122_nhm4.Fragment.NotificationFragment;
 import com.example.pro1122_nhm4.Fragment.OrderFragmentAdmin;
+import com.example.pro1122_nhm4.Fragment.ProfileFragmentUser;
 import com.example.pro1122_nhm4.Fragment.RateFragmentUser;
 import com.example.pro1122_nhm4.Fragment.StatisticalFragmentAdmin;
 import com.example.pro1122_nhm4.R;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private OrderFragmentAdmin orderFragmentAdmin;
     private StatisticalFragmentAdmin statisticalFragmentAdmin;
     private RateFragmentUser rateFragmentUser;
+    private NotificationFragment notificationFragment;
+    private ProfileFragmentUser profileFragmentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if(rateFragmentUser == null){
             rateFragmentUser = new RateFragmentUser();
+        }if(notificationFragment == null){
+            notificationFragment = new NotificationFragment();
         }
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutAdmin, homeFragmentAdmin)
@@ -68,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.menu_item_3) {
                 selectedFragment =  new RateFragmentUser();
             } else if (item.getItemId() == R.id.menu_item_4) {
-                selectedFragment =  statisticalFragmentAdmin;
+                selectedFragment =  new StatisticalFragmentAdmin();
             } else if (item.getItemId() == R.id.menu_item_5) {
-                selectedFragment =  homeFragmentAdmin;
+                selectedFragment =  new ProfileFragmentUser();
             }
 
             getSupportFragmentManager().beginTransaction()

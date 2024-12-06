@@ -84,6 +84,11 @@ public class OrderAdapterAdmin extends RecyclerView.Adapter<OrderAdapterAdmin.Vi
             holder.btn_GiaoHang.setVisibility(View.GONE);
             holder.btn_DaGiaoHang.setVisibility(View.GONE);
             holder.tv_orderStatusAdmin.setVisibility(View.VISIBLE);
+        } else if(order.getStatus().equals("Đã hủy")){
+            holder.btn_XacNhapDon.setVisibility(View.GONE);
+            holder.btn_GiaoHang.setVisibility(View.GONE);
+            holder.btn_DaGiaoHang.setVisibility(View.GONE);
+            holder.tv_orderStatusAdmin.setVisibility(View.VISIBLE);
         }
         holder.tv_ordertimeAdmin.setText(String.valueOf(order.getOrder_date()));
         holder.tv_orderStatusAdmin.setText(order.getStatus());

@@ -236,25 +236,26 @@
                 android:paddingBottom="10dp">
 
                 <Button
-                    android:id="@+id/btn_CancelDialogEditDish"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/custom_button1"
-                    app:backgroundTint="@null"
-                    android:text="Hủy"
-                    android:textColor="@color/white"
-                    android:textAllCaps="false" />
-
-                <Button
                     android:id="@+id/btn_EditDiaLogEditDish"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="10dp"
                     android:text="Sửa"
                     android:background="@drawable/custom_button1"
                     app:backgroundTint="@null"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_CancelDialogEditDish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/custom_button1"
+                    app:backgroundTint="@null"
+                    android:text="Hủy"
                     android:textColor="@color/white"
                     android:textAllCaps="false" />
 

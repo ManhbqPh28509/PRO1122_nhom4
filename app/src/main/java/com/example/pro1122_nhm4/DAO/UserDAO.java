@@ -31,7 +31,7 @@ UserDAO {
         long res = db.insert(User.TB_NAME,null,contentValues);
         return res;
     }
-    public long editThanhVien(User user){
+    public long editUser(User user){
         ContentValues contentValues = new ContentValues();
         contentValues.put(User.COL_HoTen,user.getHoten());
         contentValues.put(User.COL_NgaySinh, String.valueOf(user.getNgaysinh()));
@@ -42,6 +42,18 @@ UserDAO {
         contentValues.put(User.COL_UserRole,user.getUser_role());
         long res = db.update(User.TB_NAME,contentValues,"user_id = ? ",new String[]{user.getUser_id()+""});
         return res;
+    }
+    public long editAddressById(int user_id, String diachi){
+        String query = "SELECT * FROM User WHERE user_id = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(user_id)});
+        if (cursor.moveToFirst()) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(User.COL_DiaChi, diachi);
+            long res = db.update(User.TB_NAME, contentValues, "user_id = ?", new String[]{String.valueOf(user_id)});
+            return res;
+        }else {
+            return -1;
+        }
     }
     public long editForgotPass(String email, String matKhau){
         String query = "SELECT * FROM User WHERE email = ?";

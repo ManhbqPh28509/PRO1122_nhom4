@@ -22,7 +22,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thêm Món Ăn"
+                android:text="Sửa Tài Khoản"
                 android:textColor="@color/white"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="25dp"
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Tên món ăn:"
+                    android:text="Email:"
                     android:layout_marginTop="25dp"
                     android:textColor="@color/black"
                     android:layout_gravity="start"
@@ -48,7 +48,7 @@
                     android:textStyle="bold"
                     />
                 <EditText
-                    android:id="@+id/ed_AddNameDish"
+                    android:id="@+id/ed_EditEmailAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="9dp"
@@ -59,7 +59,7 @@
                     android:textColor="@color/black"
                     android:background="@drawable/custom_edittext"
                     android:inputType="text"
-                    android:hint="Nhập tên món ăn..."
+                    android:hint="Nhập Email..."
                     />
 
                 <TextView
@@ -70,24 +70,23 @@
                     android:layout_marginLeft="9dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/black"
-                    android:text="Giá món ăn:"
+                    android:text="Họ và tên:"
                     android:textStyle="bold"
                     />
 
 
                 <EditText
-                    android:id="@+id/ed_AddPriceDish"
+                    android:id="@+id/ed_EditNameAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="9dp"
                     android:layout_marginRight="9dp"
                     android:textColorHint="#919191"
-                    android:inputType="number"
                     android:padding="10dp"
                     android:fontFamily="@font/roboto"
                     android:textColor="@color/black"
                     android:background="@drawable/custom_edittext"
-                    android:hint="Nhập giá món ăn..."
+                    android:hint="Nhập Họ và tên..."
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -97,20 +96,21 @@
                     android:layout_marginLeft="9dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/black"
-                    android:text="Mô tả:"
+                    android:text="Số điện thoại:"
                     android:textStyle="bold"
                     />
 
 
                 <EditText
-                    android:id="@+id/ed_AddDescriptionDish"
+                    android:id="@+id/ed_EditNumbersAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="9dp"
                     android:layout_marginRight="9dp"
                     android:background="@drawable/custom_edittext"
-                    android:hint="Nhập mô tả món ăn..."
+                    android:hint="Nhập số điện thoại..."
                     android:fontFamily="@font/roboto"
+                    android:inputType="number"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="#919191" />
@@ -123,31 +123,31 @@
                     android:layout_marginTop="12dp"
                     android:layout_gravity="start"
                     android:layout_marginLeft="9dp"
-                    android:text="Hiện trạng:"
+                    android:text="Role:"
                     android:textStyle="bold"
                     />
 
 
                 <RadioGroup
-                    android:id="@+id/radioGroupAddDish"
+                    android:id="@+id/radioGroupEditAccount"
                     android:layout_marginLeft="9dp"
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
                     <RadioButton
-                        android:id="@+id/radiobtn_AddConHang"
+                        android:id="@+id/radiobtn_User"
                         android:textColor="@color/black"
                         android:fontFamily="@font/roboto"
-                        android:text="Còn Hàng"
+                        android:text="User"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <RadioButton
-                        android:id="@+id/radiobtn_AddHetHang"
+                        android:id="@+id/radiobtn_Admin"
                         android:textColor="@color/black"
                         android:fontFamily="@font/roboto"
                         android:layout_marginLeft="60dp"
-                        android:text="Hết Hàng"
+                        android:text="Admin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -161,68 +161,83 @@
                     android:layout_marginTop="12dp"
                     android:layout_gravity="start"
                     android:layout_marginLeft="9dp"
-                    android:text="Danh mục:"
+                    android:text="Địa chỉ:"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     />
 
 
-                <Spinner
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="#f2f2f2"
-                    android:id="@+id/spinnerAddDish"
+                <EditText
+                    android:id="@+id/ed_EditAddressAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:backgroundTint="@null"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Nhập địa chỉ..."
+                    android:fontFamily="@font/roboto"
+                    android:padding="10dp"
                     android:textColor="@color/black"
-                    android:popupBackground="@color/white"
-                    />
+                    android:textColorHint="#919191" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_gravity="start"
                     android:layout_marginLeft="9dp"
-                    android:text="Link ảnh:"
+                    android:text="Password:"
                     android:textColor="@color/black"
                     android:fontFamily="@font/roboto_bold"
                     android:textStyle="bold"
                     />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/ed_AddImgDish"
-                        android:layout_width="210dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="9dp"
-                        android:layout_marginRight="9dp"
-                        android:textColor="@color/black"
-                        android:padding="10dp"
-                        android:layout_weight="1"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:maxLines="1"
-                        android:background="@drawable/custom_edittext"
-                        android:hint="Nhập link ảnh món ăn..."
-                        android:textColorHint="#919191"
-                        />
 
-                    <Button
-                        android:id="@+id/btn_AddImgDish"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
-                        android:background="@drawable/custom_button"
-                        android:drawableLeft="@drawable/camera"
-                        android:gravity="center"
-                        android:tint="@color/white"
-                        app:backgroundTint="@null" />
-                </LinearLayout>
+                <EditText
+                    android:id="@+id/ed_EditPasswordAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Nhập mật khẩu..."
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:textColorHint="#919191"
+                    />
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="9dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Ngày sinh:"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/black"
+                    />
+
+
+                <EditText
+                    android:id="@+id/ed_EditDateAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:inputType="date"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:focusable="false"
+                    android:background="@drawable/custom_edittext"
+                    android:hint="Nhập ngày sinh..."
+                    android:textColorHint="#919191"
+                    />
+
+
 
             </LinearLayout>
 
@@ -237,25 +252,26 @@
                 android:paddingBottom="10dp">
 
                 <Button
-                    android:id="@+id/btn_CancelDialogAddDish"
+                    android:id="@+id/btn_EditDiaLogAccount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="10dp"
+                    android:text="Sửa"
                     android:background="@drawable/custom_button1"
                     app:backgroundTint="@null"
-                    android:text="Hủy"
                     android:textColor="@color/white"
                     android:textAllCaps="false" />
 
                 <Button
-                    android:id="@+id/btn_AddDiaLogAddDish"
+                    android:id="@+id/btn_CancelDialogAccount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Thêm"
+
                     android:background="@drawable/custom_button1"
                     app:backgroundTint="@null"
+                    android:text="Hủy"
                     android:textColor="@color/white"
                     android:textAllCaps="false" />
 

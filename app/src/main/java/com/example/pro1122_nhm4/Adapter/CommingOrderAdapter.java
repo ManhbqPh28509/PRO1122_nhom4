@@ -1,12 +1,14 @@
 package com.example.pro1122_nhm4.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -63,11 +65,14 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         order = orderList.get(position);
-        if(order.getStatus().equals("Đã hoàn thành")){
-            return;
-        } else if (order.getStatus().equals("Đã giao hàng")) {
+
+        if (order.getStatus().equals("Đã giao hàng")) {
+            holder.btn_HuyDon.setVisibility(View.GONE);
             holder.tv_orderStatus.setVisibility(View.GONE);
             holder.btn_DaNhanHang.setVisibility(View.VISIBLE);
+        }else if(order.getStatus().equals("Đang giao hàng")){
+            holder.btn_HuyDon.setVisibility(View.GONE );
+
         }
         holder.tv_ordertime.setText(String.valueOf(order.getOrder_date()));
         holder.tv_orderStatus.setText(order.getStatus());
@@ -90,6 +95,13 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
         holder.recyclerView_DishesOrder.setAdapter(adapter);
         holder.tv_quantityOrder.setText(adapter.getTotalQuantity()+" món");
         holder.tv_totalPriceOrder.setText(formatter.format(adapter.getTotalPrice()+20000) + "đ");
+        holder.btn_HuyDon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                CancelOrder(adapterPosition);
+            }
+        });
         holder.linearLayout_CommingOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +143,54 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
 
     }
 
+    private void CancelOrder(int adapterPosition) {
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_cancel_order, null);
+
+        // Khởi tạo dialog
+        Dialog dialog = new Dialog(context, androidx.appcompat.R.style.Base_V21_Theme_AppCompat_Dialog);
+        dialog.setContentView(view);
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setAttributes(params);
+        Button btn_dialog_cancel_order = view.findViewById(R.id.btn_dialog_cancel_order);
+        Button btn_dialog_cancel_cancel_order = view.findViewById(R.id.btn_dialog_cancel_cancel_order);
+        btn_dialog_cancel_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    Order order = orderList.get(adapterPosition);
+                    order.setStatus("Đã hủy");
+                    orderDAO = new OrderDAO(context);
+                    orderDAO.open();
+                    long res = orderDAO.update(order);
+                    if (res != 0) {
+                        android.util.Log.d("OrderList", "Position: " + adapterPosition + ", OrderList size: " + orderList.size());
+                        if (adapterPosition >= 0 && adapterPosition < orderList.size()) {
+                            orderList.remove(adapterPosition);
+                            notifyItemRemoved(adapterPosition);
+                            dialog.dismiss();
+                            // Thông báo rằng danh sách đã thay đổi để đảm bảo không xảy ra lỗi
+                            if (adapterPosition < orderList.size()) {
+                                notifyItemRangeChanged(adapterPosition, orderList.size() - adapterPosition);
+                            }
+                        } else {
+                            android.util.Log.d("OrderList", "Invalid position: " + adapterPosition);
+                        }
+                    }
+                }
+            }
+        });
+        btn_dialog_cancel_cancel_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+    }
+
     @Override
     public int getItemCount() {
         return orderList.size();
@@ -139,7 +199,7 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_ordertime, tv_orderStatus, tv_totalPriceOrder, tv_quantityOrder,tv_ShipTimeOrder;
         private RecyclerView recyclerView_DishesOrder;
-        private Button btn_DaNhanHang;
+        private Button btn_DaNhanHang,btn_HuyDon;
         private LinearLayout linearLayout_CommingOrder;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -151,6 +211,7 @@ public class CommingOrderAdapter extends RecyclerView.Adapter<CommingOrderAdapte
             recyclerView_DishesOrder = itemView.findViewById(R.id.recyclerView_DishesOrder);
             btn_DaNhanHang = itemView.findViewById(R.id.btn_DaGiaoHang);
             linearLayout_CommingOrder = itemView.findViewById(R.id.linearLayout_CommingOrder);
+            btn_HuyDon = itemView.findViewById(R.id.btn_HuyDon);
         }
     }
 }

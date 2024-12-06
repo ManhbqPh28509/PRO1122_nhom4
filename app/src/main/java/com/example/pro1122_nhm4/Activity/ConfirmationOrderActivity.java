@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -54,6 +56,8 @@ public class ConfirmationOrderActivity extends AppCompatActivity {
     private OrderItemDAO orderItemDAO;
     private Order order;
     private OrderItem orderItem;
+    private LinearLayout linearLayout_DiaChiUserConfirmOder;
+    private ImageView iv_confirm_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +115,21 @@ public class ConfirmationOrderActivity extends AppCompatActivity {
         tv_totalPriceDish.setText(formatter.format(totalPriceWithShip) + "đ");
         orderDAO = new OrderDAO(this);
         orderItemDAO = new OrderItemDAO(this);
+        linearLayout_DiaChiUserConfirmOder = findViewById(R.id.linearLayout_DiaChiUserConfirmOder);
+        linearLayout_DiaChiUserConfirmOder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfirmationOrderActivity.this, AddressEditActivity.class);
+                startActivity(intent);
+            }
+        });
+        iv_confirm_back = findViewById(R.id.img_backComfirmOrder);
+        iv_confirm_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         btn_confirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
